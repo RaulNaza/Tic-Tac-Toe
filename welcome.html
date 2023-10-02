@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+    <div class="container-fluid text-center">
+        <div class="m-5 fs-1 fw-bolder">
+            Welcome to Tic-Tac-Toe!
+        </div>
+    </div>
+
+    <div class="container-fluid text-center">
+        <div class="m-5 fs-4">
+            What are your names?
+        </div>
+    </div>
+
+    <div class="container text-center fs-5">
+        <form id="name-form">
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" id="p1Name">
+                <label class="form-label" for="p1Name">Player 1</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="text" id="p2Name">
+                <label class="form-label" for="p2Name">Player 2</label>
+            </div>
+            <button type="submit" class="btn" id="submit-btn">Start Game</button>
+        </form>
+    </div>
+
+    <script src="node_modules/bootstrap/dist/css/bootstrap.css"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
