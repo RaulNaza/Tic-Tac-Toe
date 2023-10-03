@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tic-Tac-Toe Game</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
 </head>
-<body class="bg-body-secondary">
+<body class="bg-body-secondary" onload="getValues()">
     
     <div class="container-fluid text-center" id="heading">
         <div class="m-5 fs-1 fw-bolder">
@@ -21,38 +21,40 @@
         </div>
     </div>
 
-    <div class="container text-center" id="game-board">
-        <div class="row" id="top-row">
-            <div class="col btn" id="top-left">
-                Top Left
+    <div class="container text-center" id="gameboard">
+        <div class="row" id="top-row" style="height: 200px;">
+            <div class="col" id="top-left" >
+                <!-- style="background-image: url('Images/X_Clipart.png'); background-size: 20%; background-repeat: no-repeat; background-position: center;" -->
+                    <!-- Top Left -->
             </div>
-            <div class="col" id="top-center">
-                Top Center
+            <div class="col" id="top-center" >
+                <!-- style="background-image: url('Images/O_Clipart.png'); background-size: 20%; background-repeat: no-repeat; background-position: center;" -->
+                <!-- Top Center -->
             </div>
             <div class="col" id="top-right">
-                Top Right
+                <!-- Top Right -->
             </div>
         </div>
-        <div class="row" id="middle-row">
+        <div class="row" id="middle-row" style="height: 200px;">
             <div class="col" id="middle-left">
-                Middle Left
+                <!-- Middle Left -->
             </div>
             <div class="col" id="middle-center">
-                Middle Center
+                <!-- Middle Center -->
             </div>
             <div class="col" id="middle-right">
-                Middle Right
+                <!-- Middle Right -->
             </div>
         </div>
-        <div class="row" id="bottom-row">
+        <div class="row" id="bottom-row" style="height: 200px;">
             <div class="col" id="bottom-left">
-                Bottom Left
+                <!-- Bottom Left -->
             </div>
             <div class="col" id="bottom-center">
-                Bottom Center
+                <!-- Bottom Center -->
             </div>
             <div class="col" id="bottom-right">
-                Bottom Right
+                <!-- Bottom Right -->
             </div>
         </div>
     </div>
@@ -61,6 +63,10 @@
 
     </div>
 
+    <div class="container text-center">
+        <button class="btn" id="reset-board">Reset Board</button>
+        <button class="btn" id="new-players">New Players</button>
+    </div>
 
 
 

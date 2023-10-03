@@ -1,242 +1,283 @@
-//JQuery 
+//JQuery assignment
+let gameBoard = $('#gameboard');
+
+let resetBtn = $('#reset-board');
+
+let newPlayers = $('#new-players')
+
 let columns = $('.col');
 columns.addClass(`border border-black border-2 border-opacity-50 p-5 m-3
                   btn btn-light
                   fs-1
+                  bg-dark-subtle
                 `);
 
 let rows = $('.row');
 rows.addClass('mb-3');
 
 let buttons = $('.btn');
-buttons.addClass('btn-outline-primary btn-lg');
+buttons.addClass('btn-outline-primary btn-lg mb-3');
 
-let alert = $('#alert-box');
-
-//Player Name Inputs
-// let p1Name = $('#p1Name').val();
-// let p2Name = $('#p2Name').val();
-
-//Form
-let nameForm = $('#name-form');
+let alertBox = $('#alert-box');
 
 //Player Buttons
 let player1 = $('#Player1');
-// let nameOfP1 = player1.text() + ' (X)';
-// player1.text(nameOfP1);
-
 let player2 = $('#Player2');
-// let nameOfP2 = player2.text() + ' (O)';
-// player2.text(nameOfP2);
-
-//Submit Button
-let subBtn = $('#submit-btn');
-
 
 //Error Message
-const error = new Error('Please choose a Player')
+const noPlayerSelected = new Error('Please choose a Player');
+const noNameEntered = new Error('No name entered.');
 
 //Actions
 let topLeft = $('#top-left');
 let topLText = '';
 topLeft.on('click', function() {
-    // console.log(`This ${topLeft.text()} is working as a button!!!`);
-    
     if (playerX === true){
         xClick($(this));
+        topLText = "X"
+        p2Click();
         p1Disable();
         p2Enable();
         $(this).off('click');
-        topLText = getText($(this));
+        postToBoardElements(topLText);
     }else if (playerO === true){
         oClick($(this));
+        topLText = "O"
+        p1Click();
         p2Disable();
         p1Enable();
         $(this).off('click');
-        topLText = getText($(this));
+        postToBoardElements(topLText);
     }else{
-
-        return alert(error);
+        return alert(noPlayerSelected);
     }
-})
+});
 
 let topCenter = $('#top-center');
 let topCText = '';
 topCenter.on('click', function() {
-    // console.log(`This ${topCenter.text()} is working as a button!!!`);
     if (playerX === true){
         xClick($(this));
+        topCText = "X";
+        p2Click();
         p1Disable();
         p2Enable();
         $(this).off('click');
-        topCText = getText($(this));
+        postToBoardElements(topCText);
     }else if (playerO === true){
         oClick($(this));
+        topCText = "O";
+        p1Click()
         p2Disable();
         p1Enable();
         $(this).off('click');
-        topCText = getText($(this));
+        postToBoardElements(topCText);
     }else{
-        return alert(error);
+        return alert(noPlayerSelected);
     }
-})
+});
 
 let topRight = $('#top-right');
 let topRText = '';
 topRight.on('click', function() {
-    // console.log(`This ${topRight.text()} is working as a button!!!`);
     if (playerX === true){
         xClick($(this));
+        topRText = "X";
+        p2Click();
         p1Disable();
         p2Enable();
         $(this).off('click');
-        topRText = getText($(this));
+        postToBoardElements(topRText);
     }else if (playerO === true){
         oClick($(this));
+        topRText = "O";
+        p1Click();
         p2Disable();
         p1Enable();
         $(this).off('click');
-        topRText = getText($(this));
+        postToBoardElements(topRText);
     }else{
-        return alert(error);
+        return alert(noPlayerSelected);
     }
-})
+});
 
 let middleLeft = $('#middle-left');
 let middleLText = '';
 middleLeft.on('click', function() {
-    // console.log(`This ${middleLeft.text()} is working as a button!!!`);
     if (playerX === true){
         xClick($(this));
+        middleLText = "X";
+        p2Click();
         p1Disable();
         p2Enable();
         $(this).off('click');
-        middleLText = getText($(this));
+        postToBoardElements(middleLText);
     }else if (playerO === true){
         oClick($(this));
+        middleLText = "O";
+        p1Click();
         p2Disable();
         p1Enable();
         $(this).off('click');
-        middleLText = getText($(this));
+        postToBoardElements(middleLText);
     }else{
-        return alert(error);
+        return alert(noPlayerSelected);
     }
-})
+});
 
 let middleCenter = $('#middle-center');
 let middleCText = '';
 middleCenter.on('click', function() {
-    // console.log(`This ${middleCenter.text()} is working as a button!!!`);
     if (playerX === true){
         xClick($(this));
+        middleCText = "X";
+        p2Click();
         p1Disable();
         p2Enable();
         $(this).off('click');
-        middleCText = getText($(this));
+        postToBoardElements(middleCText);
     }else if (playerO === true){
         oClick($(this));
+        middleCText = "O";
+        p1Click();
         p2Disable();
         p1Enable();
         $(this).off('click');
-        middleCText = getText($(this));
+        postToBoardElements(middleCText);
     }else{
-        return alert(error);
+        return alert(noPlayerSelected);
     }
-})
+});
 
 let middleRight = $('#middle-right');
 let middleRText = '';
 middleRight.on('click', function() {
-    // console.log(`This ${middleRight.text()} is working as a button!!!`);
     if (playerX === true){
         xClick($(this));
+        middleRText = 'X';
+        p2Click();
         p1Disable();
         p2Enable();
         $(this).off('click');
-        middleRText = getText($(this));
+        postToBoardElements(middleRText);
     }else if (playerO === true){
         oClick($(this));
+        middleRText = "O";
+        p1Click();
         p2Disable();
         p1Enable();
         $(this).off('click');
-        middleRText = getText($(this));
+        postToBoardElements(middleRText);
     }else{
-        return alert(error);
+        return alert(noPlayerSelected);
     }
-})
+});
 
 let bottomLeft = $('#bottom-left');
 let bottomLText = '';
 bottomLeft.on('click', function() {
-    // console.log(`This ${bottomLeft.text()} is working as a button!!!`);
     if (playerX === true){
         xClick($(this));
+        bottomLText = "X";
+        p2Click();
         p1Disable();
         p2Enable();
         $(this).off('click');
-        bottomLText = getText($(this));
+        postToBoardElements(bottomLText);
     }else if (playerO === true){
         oClick($(this));
+        bottomLText = "O";
+        p1Click();
         p2Disable();
         p1Enable();
         $(this).off('click');
-        bottomLText = getText($(this));
+        postToBoardElements(bottomLText);
     }else{
-        return alert(error);
+        return alert(noPlayerSelected);
     }
-})
+});
 
 let bottomCenter = $('#bottom-center');
 let bottomCtext ='';
 bottomCenter.on('click', function() {
-    // console.log(`This ${bottomCenter.text()} is working as a button!!!`);
     if (playerX === true){
         xClick($(this));
+        bottomCtext = "X";
+        p2Click();
         p1Disable();
         p2Enable();
         $(this).off('click');
-        bottomCtext = getText($(this));
+        postToBoardElements(bottomCtext);
     }else if (playerO === true){
         oClick($(this));
+        bottomCtext = "O";
+        p1Click();
         p2Disable();
         p1Enable();
         $(this).off('click');
-        bottomCtext = getText($(this));
+        postToBoardElements(bottomCtext);
     }else{
-        return alert(error);
+        return alert(noPlayerSelected);
     }
-})
+});
+
 let bottomRight = $('#bottom-right');
 let bottomRText = '';
 bottomRight.on('click', function() {
-    // console.log(`This ${bottomRight.text()} is working as a button!!!`);
     if (playerX === true){
         xClick($(this));
+        bottomRText = "X";
+        p2Click();
         p1Disable();
         p2Enable();
         $(this).off('click');
-        bottomRText = getText($(this));
+        postToBoardElements(bottomRText);
     }else if (playerO === true){
         oClick($(this));
+        bottomRText = "O";
+        p1Click();
         p2Disable();
         p1Enable();
         $(this).off('click');
-        bottomRText = getText($(this));
+        postToBoardElements(bottomRText);
     }else{
-        return alert(error);
+        return alert(noPlayerSelected);
     }
-})
+});
+
+//Player Assignment
+let playerX = null;
+let playerO = null;
+
+//player1 will be assigned to playerX and change its value to true
+player1.on('click', p1Click);
+function p1Click (){
+    p2Disable();
+    playerX = true;
+    playerO = false;
+};
+
+//player2 will be assigned to playerO and change its value to true;
+player2.on('click', p2Click);
+function p2Click (){
+    p1Disable();
+    playerX = false;
+    playerO = true;
+};
 
 //Click Events
 let xClick = function (element) {
-    //this will replace the current text with a new text
-    $(element).text("X");
-    playerX = null;
-}
+    $(element).css(`background-image`,`url('Images/X_Clipart.png')`);
+    $(element).css(`background-size`,`30%`);
+    $(element).css(`background-repeat`,`no-repeat`);
+    $(element).css(`background-position`,`center`);
+};
 
 let oClick = function (element) {
-    $(element).text('O')
-    playerO = null;
+    $(element).css(`background-image`,`url('Images/O_Clipart.png')`);
+    $(element).css(`background-size`,`30%`);
+    $(element).css(`background-repeat`,`no-repeat`);
+    $(element).css(`background-position`,`center`);
 }
 
 //Disable/Enable Buttons
@@ -254,69 +295,133 @@ let p2Enable = function () {
     player2.removeClass('disabled');
 }
 
-//Submit Button
-
-nameForm.on('submit', function(event) {
-    event.preventDefault();
-    
-    let p1Name = $('#p1Name').val();
-    let p2Name = $('#p2Name').val();
-
-    let player1 = $('#Player1');
-    let player2 = $('#Player2');
-    player1.text(p1Name);
-    player2.text(p2Name);
-})
-
-//Player Assignment
-let playerX = null;
-
-let playerO = null;
-
-//player1 will be assigned to playerX and change its value to true
-player1.on('click', function () {
-    p2Disable();
-    playerX = true;
-    playerO = false;
-})
-
-//player2 will be assigned to playerO and change its value to true;
-
-player2.on('click', function () {
-    p1Disable();
-    playerX = false;
-    playerO = true;
-})
-
-//Get element text
-let getText = function (event) {
-    let text = $(event).text();
-    let trimmed = text.trim();
-    return trimmed;
-};
-
 // Tester
 let tester = setInterval(function () {
+    //Rows, columns, diagonals
     let topRow = `${topLText}${topCText}${topRText}`;
     let middleRow = `${middleLText}${topCText}${topRText}`;
     let bottomRow = `${bottomLText}${bottomCtext}${bottomRText}`;
-    console.log(bottomRow);
+    let firstCol = `${topLText}${middleLText}${bottomLText}`;
+    let secondCol = `${topCText}${middleCText}${bottomCtext}`;
+    let thirdCol = `${topRText}${middleRText}${bottomRText}`;
+    let leftDiagonal = `${topLText}${middleCText}${bottomRText}`;
+    let rightDiagonal = `${topRText}${middleCText}${bottomLText}`;
+    
+    //Condtions for a win
     if(topRow === 'XXX' || topRow === "OOO"){
-        winnerAlert();
+        winnerAlert(topRow);
         clearInterval(tester);
     }else if(middleRow === 'XXX' || middleRow === "OOO"){
-        winnerAlert();
+        winnerAlert(middleRow);
         clearInterval(tester);
     }else if(bottomRow === 'XXX' || bottomRow === "OOO"){
-        winnerAlert();
+        winnerAlert(bottomRow);
+        clearInterval(tester);
+    }else if(firstCol === 'XXX' || firstCol === "OOO"){
+        winnerAlert(firstCol);
+        clearInterval(tester);
+    }else if(secondCol === 'XXX' || secondCol === "OOO"){
+        winnerAlert(secondCol);
+        clearInterval(tester);
+    }else if(thirdCol === 'XXX' || thirdCol === "OOO"){
+        winnerAlert(thirdCol);
+        clearInterval(tester);
+    }else if(leftDiagonal === 'XXX' || leftDiagonal === "OOO"){
+        winnerAlert(leftDiagonal);
+        clearInterval(tester);
+    }else if(rightDiagonal === 'XXX' || rightDiagonal === "OOO"){
+        winnerAlert(rightDiagonal);
+        clearInterval(tester);
+    }else if (boardElements.length === 9){
+        drawAlert();
         clearInterval(tester);
     }
-}, 1000);
+}, 500);
 
-//Winner Aler
-//must make it functional
-function winnerAlert () {
-    alert.addClass('alert alert-success');
-    alert.text('You won Player 1!!!');
+//Winner Alert
+function winnerAlert (winner) {
+    if (winner === "XXX"){
+        gameBoard.hide();
+        p1Disable();
+        p2Disable();
+        alertBox.addClass('alert alert-success');
+        alertBox.text(`You won ${player1.text()}!!!`);
+    }else if(winner === "OOO"){
+        gameBoard.hide();
+        p1Disable();
+        p2Disable();
+        alertBox.addClass('alert alert-success');
+        alertBox.text(`You won ${player2.text()}!!!`);
+    }
+};
+
+//Draw Alert
+function drawAlert() {
+    gameBoard.hide();
+    p1Disable();
+    p2Disable();
+    alertBox.addClass('alert alert-success');
+    alertBox.text(`It's a draw!!!`);
+}
+
+//Conditions for a DRAW
+let boardElements = '';
+
+function postToBoardElements (element){
+    boardElements += element;
+};
+
+//Restart Game
+//start a new game between same players or new players
+
+//same players would only reset the board
+resetBtn.on('click', function () {
+    location.reload();
+})
+
+//new players would go back to welcome.html and ask for player names
+newPlayers.on('click', function() {
+    location.replace('welcome.html');
+})
+
+//Welcome Page
+
+//Submit Button
+let subBtn = $('#submit-btn');
+
+subBtn.on('click', function(event) {
+    event.preventDefault();
+
+    //Player Name Inputs
+    let nameOfP1 = `${$('#p1Name').val()}`;
+    let nameOfP2 = `${$('#p2Name').val()}`;
+
+    //check for empty inputs
+    if(nameOfP1 === '' || nameOfP2 === ''){
+        alert(noNameEntered);
+    }else{
+        saveValues(nameOfP1,nameOfP2);
     
+        //Load game page
+        location.replace('index.html');
+    }
+});
+
+//Local Storage
+
+let saveValues = function(val1,val2){
+    localStorage.setItem('firstPlayer', val1);
+    localStorage.setItem('secondPlayer', val2);
+}
+
+let getValues = function(){
+    let valP1 = localStorage.getItem('firstPlayer');
+    let valP2 = localStorage.getItem('secondPlayer');
+    changeNames(valP1, valP2)
+}
+
+//Change Player Names
+function changeNames(name1,name2){
+    player1.text(name1);
+    player2.text(name2);
 }

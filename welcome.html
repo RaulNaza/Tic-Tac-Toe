@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Welcome to Tic-Tac-Toe</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
@@ -20,14 +20,14 @@
     </div>
 
     <div class="container text-center fs-5">
-        <form id="name-form">
+        <form class="needs-validation" id="name-form" novalidate>
             <div class="form-floating mb-3">
-                <input class="form-control" type="text" id="p1Name">
-                <label class="form-label" for="p1Name">Player 1</label>
+                <input class="form-control" type="text" id="p1Name" maxlength="10" required>
+                <label class="form-label" for="p1Name">Player 1 - X</label>
             </div>
             <div class="form-floating mb-3">
-                <input class="form-control" type="text" id="p2Name">
-                <label class="form-label" for="p2Name">Player 2</label>
+                <input class="form-control" type="text" id="p2Name" maxlength="10" required>
+                <label class="form-label" for="p2Name">Player 2 - O</label>
             </div>
             <button type="submit" class="btn" id="submit-btn">Start Game</button>
         </form>
