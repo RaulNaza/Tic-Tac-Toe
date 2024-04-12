@@ -1,79 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic-Tac-Toe Game</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-</head>
-<body class="bg-body-secondary" onload="getValues()">
-    
-    <div class="container-fluid text-center" id="heading">
-        <div class="m-5 fs-1 fw-bolder">
-            Tic-Tac-Toe
-        </div>
-    </div>
-    
-    <div class="container-fluid text-center" id="buttons">
-        <div class="text-center fs-5" id="players">
-            <button class="btn" id="Player1">Player 1</button>
-            <button class="btn" id="Player2">Player 2</button>
-        </div>
-    </div>
-
-    <div class="container text-center" id="gameboard">
-        <div class="row" id="top-row" style="height: 200px;">
-            <div class="col" id="top-left" >
-                <!-- style="background-image: url('Images/X_Clipart.png'); background-size: 20%; background-repeat: no-repeat; background-position: center;" -->
-                    <!-- Top Left -->
-            </div>
-            <div class="col" id="top-center" >
-                <!-- style="background-image: url('Images/O_Clipart.png'); background-size: 20%; background-repeat: no-repeat; background-position: center;" -->
-                <!-- Top Center -->
-            </div>
-            <div class="col" id="top-right">
-                <!-- Top Right -->
-            </div>
-        </div>
-        <div class="row" id="middle-row" style="height: 200px;">
-            <div class="col" id="middle-left">
-                <!-- Middle Left -->
-            </div>
-            <div class="col" id="middle-center">
-                <!-- Middle Center -->
-            </div>
-            <div class="col" id="middle-right">
-                <!-- Middle Right -->
-            </div>
-        </div>
-        <div class="row" id="bottom-row" style="height: 200px;">
-            <div class="col" id="bottom-left">
-                <!-- Bottom Left -->
-            </div>
-            <div class="col" id="bottom-center">
-                <!-- Bottom Center -->
-            </div>
-            <div class="col" id="bottom-right">
-                <!-- Bottom Right -->
-            </div>
-        </div>
-    </div>
-
-    <div class="container text-center fs-1 fw-bolder" id="alert-box">
-
-    </div>
-
-    <div class="container text-center">
-        <button class="btn" id="reset-board">Reset Board</button>
-        <button class="btn" id="new-players">New Players</button>
-    </div>
-
-
-
-
-    <script src="node_modules/bootstrap/dist/css/bootstrap.css"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <script src="node_modules/jquery/dist/jquery.js"></script>
-    <script src="index.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac-Toe</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
