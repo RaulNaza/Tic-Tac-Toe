@@ -189,7 +189,7 @@ function GameBoard(props: Props) {
         };
 
         //if no winners, its a draw after 9 turns.
-        if (counter === 9) {
+        if (counter === 9 && result === '') {
             setResult(`Draw!`);
             setGamePhase(startOptions.end);
         };
@@ -486,87 +486,78 @@ function GameBoard(props: Props) {
                     <div
                         className='gameboard-container'
                         id='inner-container-gameboard'>
-                        <div className='box'>
-                            <button
-                                id='top-left'
-                                className='not-clicked'
-                                value={1}
-                                onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
-                            >
-                            </button>
-                        </div>
-                        <div className='box'>
-                            <button
-                                id='top-middle'
-                                className='not-clicked'
-                                value={2}
-                                onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
-                            >
-                            </button>
-                        </div>
-                        <div className='box'>
-                            <button
-                                id='top-right'
-                                className='not-clicked'
-                                value={3}
-                                onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
-                            >
-                            </button>
-                        </div>
-                        <div className='box'>
-                            <button
-                                id='center-left'
-                                className='not-clicked'
-                                value={4}
-                                onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
-                            >
-                            </button>
-                        </div>
-                        <div className='box'>
-                            <button
-                                id='center-middle'
-                                className='not-clicked'
-                                value={5}
-                                onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
-                            >
-                            </button>
-                        </div>
-                        <div className='box'>
-                            <button
-                                id='center-right'
-                                className='not-clicked'
-                                value={6}
-                                onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
-                            >
-                            </button>
-                        </div>
-                        <div className='box'>
-                            <button
-                                id='bottom-left'
-                                className='not-clicked'
-                                value={7}
-                                onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
-                            >
-                            </button>
-                        </div>
-                        <div className='box'>
-                            <button
-                                id='bottom-middle'
-                                className='not-clicked'
-                                value={8}
-                                onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
-                            >
-                            </button>
-                        </div>
-                        <div className='box'>
-                            <button
-                                id='bottom-right'
-                                className='not-clicked'
-                                value={9}
-                                onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
-                            >
-                            </button>
-                        </div>
+
+                        <button
+                            id='top-left'
+                            className='not-clicked'
+                            value={1}
+                            onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
+                        >
+                        </button>
+
+                        <button
+                            id='top-middle'
+                            className='not-clicked'
+                            value={2}
+                            onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
+                        >
+                        </button>
+
+                        <button
+                            id='top-right'
+                            className='not-clicked'
+                            value={3}
+                            onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
+                        >
+                        </button>
+
+                        <button
+                            id='center-left'
+                            className='not-clicked'
+                            value={4}
+                            onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
+                        >
+                        </button>
+
+                        <button
+                            id='center-middle'
+                            className='not-clicked'
+                            value={5}
+                            onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
+                        >
+                        </button>
+
+                        <button
+                            id='center-right'
+                            className='not-clicked'
+                            value={6}
+                            onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
+                        >
+                        </button>
+
+                        <button
+                            id='bottom-left'
+                            className='not-clicked'
+                            value={7}
+                            onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
+                        >
+                        </button>
+
+                        <button
+                            id='bottom-middle'
+                            className='not-clicked'
+                            value={8}
+                            onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
+                        >
+                        </button>
+
+                        <button
+                            id='bottom-right'
+                            className='not-clicked'
+                            value={9}
+                            onClick={(event) => handlePlayerMove(event.currentTarget.id, event.currentTarget.value)}
+                        >
+                        </button>
                     </div>
                     <div
                         className='result-container'
@@ -591,7 +582,6 @@ function GameBoard(props: Props) {
                         </button>
                     </div>
                 </div>
-
             </div >
 
         </>
